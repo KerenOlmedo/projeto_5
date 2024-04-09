@@ -1,0 +1,50 @@
+.container {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 400px;
+  border-radius: 20px;
+  background-color: #95c2bf;
+}
+
+.title-card {
+  font-weight: 700;
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+input {
+  width: 370px;
+
+  &:focus {
+    border-color: #b8b7b7e4; // Mudando a cor da borda quando o input está focado
+    box-shadow: 0 0 0 0.3rem rgba(221, 221, 221, 0.789); // Adicionando um leve sombreamento para indicar o foco
+  }
+}
+
+form {
+  flex-direction: column;
+}
+
+button {
+  margin: 3px;
+  font-weight: 600;
+  border-color: white;
+  background-color: transparent;
+
+  &:hover {
+    border-color: #4c4d4c;
+    background-color: #4c4d4c;
+  }
+}
+
+.title-input {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+label {
+  color: white;
+}
