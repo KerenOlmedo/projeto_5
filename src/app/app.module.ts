@@ -3,24 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InitialScreenComponent } from './components/initial-screen/initial-screen.component';
 import { LoginComponent } from './components/login/login.component';
-import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InfoProjectComponent } from './components/info-project/info-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InitialScreenComponent,
     LoginComponent,
-    CadastroComponent,
-    HeaderComponent
+    RegisterComponent,
+    HeaderComponent,
+    DashboardComponent,
+    InfoProjectComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

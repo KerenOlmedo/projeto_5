@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 400px;
+  height: 620px;
   border-radius: 20px;
   background-color: #95c2bf;
 }
@@ -19,8 +19,8 @@ input {
   width: 370px;
 
   &:focus {
-    border-color: #b8b7b7e4; // Mudando a cor da borda quando o input está focado
-    box-shadow: 0 0 0 0.3rem rgba(221, 221, 221, 0.789); // Adicionando um leve sombreamento para indicar o foco
+    border-color: #b8b7b7e4;
+    box-shadow: 0 0 0 0.3rem rgba(221, 221, 221, 0.789);
   }
 }
 

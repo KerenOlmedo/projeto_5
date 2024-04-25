@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -6,18 +6,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   constructor(public router: Router, private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   forgotPassword() {
     console.log('Esqueci minha senha clicado');
   }
 
   register() {
+    this.router.navigate([`/register`]);
     console.log('Cadastrar clicado');
   }
 

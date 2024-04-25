@@ -1,0 +1,54 @@
+<section>
+  <div class="row container-father">
+    <div class="row justify-content-center" style="margin-top: 40px">
+      <div class="col d-flex justify-content-around">
+        <h3>Projetos</h3>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <button class="btn-new-project">Novo Projeto +</button>
+      </div>
+    </div>
+    <div class="col">
+      <div style="height: 350px">
+        <ul class="mb-0">
+          <li class="d-flex" *ngFor="let item of projectsList">
+            <div class="list-content">
+              <div class="column-list">
+                <strong (click)="infoProject()" class="name-list"
+                  >{{ item.name }}
+                </strong>
+              </div>
+              <div class="column-list d-flex justify-content-center">
+                <label>{{ item.description }}</label>
+              </div>
+              <div class="column-list d-flex justify-content-end">
+                <button>
+                  <img
+                    src="assets/icon_trash.svg"
+                    alt="icon trash"
+                    class="img-trash"
+                  />
+                </button>
+                <button>
+                  <img
+                    src="assets/icon_to_edit.svg"
+                    alt="icon to edit"
+                    class="img-to-edit"
+                  />
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 40px">
+      <div class="col pagination justify-content-center">
+        <button class="btn-pagnation"><</button>
+        <span>Página 1 de 2</span>
+        <button class="btn-pagnation">></button>
+      </div>
+      <div class="col d-flex justify-content-end"></div>
+    </div>
+  </div>
+</section>

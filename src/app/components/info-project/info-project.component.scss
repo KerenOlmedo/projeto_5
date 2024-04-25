@@ -1,0 +1,170 @@
+section {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  height: 580px;
+}
+
+.container-father {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  background-color: #cfcfcf;
+  border-radius: 20px;
+}
+
+h3 {
+  font-family: Poppins;
+  font-weight: 800;
+  font-size: 35px;
+  color: #5c5c5c;
+}
+
+.check-box-trash {
+  margin-left: 14px;
+  margin-top: 5px !important;
+  margin-right: -53px;
+}
+
+.check-box-trash:checked {
+  border: #e78617;
+  background-color: #e78617;
+}
+
+.list-content {
+  background-color: #f5f5f5c7;
+  border-radius: 5px;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 30px 5px 5px;
+
+  button {
+    margin-right: 40px;
+  }
+
+  label {
+    padding: 10px;
+    font-size: 18px;
+  }
+}
+
+.title-user-type {
+  font-size: 18px;
+  margin: 10px 0px 1px 100px;
+  display: flex;
+}
+
+.name-list {
+  font-size: 18px;
+  margin-left: 65px;
+  cursor: pointer;
+  color: #5c5c5c;
+}
+
+button {
+  color: #ffffff;
+  width: 42px;
+  height: 40px;
+  background-color: #0da1ac;
+  border-radius: 8px;
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+}
+
+.img-to-edit {
+  margin-bottom: 1px;
+  margin-top: -3px;
+}
+
+.img-trash {
+  height: 20px;
+  margin-bottom: 1px;
+  margin-top: -5px;
+}
+
+.btn-new-project {
+  background-color: #e78617 !important;
+  margin: 4px 20px 4px 4px;
+  font-size: 20px;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.btn-go-back {
+  font-family: Poppins;
+  font-size: 21px;
+  width: 100px;
+  margin: 3px 20px 25px 3px;
+  font-weight: 600;
+  border-color: white;
+  background-color: #4c4d4c;
+
+  &:hover {
+    border-color: #eeeeee;
+    background-color: #4c4d4c;
+  }
+}
+
+.btn-new-project:disabled {
+  opacity: 0.5;
+}
+
+.btn-search {
+  margin: 4px;
+  height: 34px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.pagination {
+  font-size: px;
+  display: flex;
+  justify-content: center;
+  span {
+    margin: 11px 30px 4px 30px;
+    font-size: 18px;
+  }
+}
+
+.column-list {
+  width: 30%;
+}
+
+.btn-pagnation {
+  margin-top: 11px;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 700;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+/* Mobile Devices */
+@media (max-width: 480px) {
+}
+
+/* Low resolution Tablets and iPads */
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* Tablets iPads (Portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1200px) {
+}
+@media (min-width: 1201px) and (max-width: 1280px) {
+}
+
+/* Big boi Monitors */
+@media (min-width: 1281px) {
+}

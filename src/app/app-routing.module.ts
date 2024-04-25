@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InitialScreenComponent } from './components/initial-screen/initial-screen.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InfoProjectComponent } from './components/info-project/info-project.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: InitialScreenComponent,
+    component: LoginComponent,
   },
-  {
-    path: '/dashboard',
-    component: InitialScreenComponent,
-  },
+  { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'project', component: InfoProjectComponent },
 ];
 
 @NgModule({

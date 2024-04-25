@@ -15,11 +15,13 @@
       <input type="password" class="form-control" id="exampleInputPassword1" />
     </div>
     <div class="d-flex justify-content-between">
-      <div class="">
+      <div style="margin-top: 15px">
         <label (click)="forgotPassword()">Esqueci minha senha?</label>
       </div>
-      <div class="">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <div style="margin-top: 15px">
+        <button type="submit" class="btn btn-primary" (click)="register()">
+          Cadastrar
+        </button>
         <button type="submit" (click)="login()" class="btn btn-primary">
           Entrar
         </button>
