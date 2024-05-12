@@ -8,6 +8,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InfoProjectComponent } from './components/info-project/info-project.component';
+import { CreateNewProjectComponent } from './components/create-new-project/create-new-project.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NewProjectComponent } from './components/new-project/new-project.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +22,16 @@ import { InfoProjectComponent } from './components/info-project/info-project.com
     HeaderComponent,
     DashboardComponent,
     InfoProjectComponent,
+    CreateNewProjectComponent,
+    ProfileComponent,
+    NewProjectComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

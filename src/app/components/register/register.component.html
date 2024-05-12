@@ -1,13 +1,14 @@
 <div class="container">
-  <form>
+  <form (ngSubmit)="createUser()" [formGroup]="formRegister">
     <label class="title-card">Cadastro</label>
     <div class="mb-3">
       <label class="form-label title-input">Nome do usuário</label>
-      <input class="form-control" />
+      <input formControlName="name" class="form-control" />
     </div>
     <div class="mb-3">
       <label class="form-label title-input">Email</label>
       <input
+        formControlName="address"
         type="email"
         class="form-control"
         id="exampleInputEmail1"
@@ -16,18 +17,20 @@
     </div>
     <div class="mb-3">
       <label class="form-label title-input">Senha</label>
-      <input type="password" class="form-control" />
+      <input formControlName="password" type="password" class="form-control" />
     </div>
     <div class="mb-3">
       <label class="form-label title-input">Confirmar Senha</label>
-      <input type="password" class="form-control" />
+      <input
+        formControlName="repeatPassword"
+        type="password"
+        class="form-control"
+      />
     </div>
     <div class="d-flex justify-content-end">
       <div style="margin-top: 15px">
-        <button type="submit" class="btn btn-primary" (click)="goBack()">
-          Voltar
-        </button>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button class="btn btn-primary" (click)="goBack()">Voltar</button>
+        <button class="btn btn-primary">Cadastrar</button>
       </div>
     </div>
   </form>

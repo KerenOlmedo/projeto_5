@@ -31,4 +31,6 @@ export class InfoProjectComponent {
       description: 'descrição da tarefa',
     },
   ];
+
+  
 }
