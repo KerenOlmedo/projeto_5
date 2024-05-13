@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  protected listUser = [];
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
@@ -56,7 +57,7 @@ export class RegisterComponent {
   protected listUsers() {
     this.userService.listUser().subscribe(
       (data) => {
-        console.log(data);
+        this.listUser = data;
       },
       (error) => {
         console.error('Erro ao fazer requisição:', error);
