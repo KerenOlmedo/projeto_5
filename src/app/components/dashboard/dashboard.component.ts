@@ -8,6 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DashboardComponent {
   constructor(public router: Router, private route: ActivatedRoute) {}
+  protected userLoggedId!: any;
+
+  ngOnInit() {
+    this.userLoggedId = localStorage.getItem('userId');
+    console.log(this.userLoggedId);
+  }
 
   protected infoProject() {
     this.router.navigate([`/project`]);

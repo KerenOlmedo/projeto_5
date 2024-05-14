@@ -47,6 +47,7 @@ export class LoginComponent {
     for (const user of this.listUser) {
       if (user.email === userForm.address && user.senha === userForm.password) {
         userFound = true;
+        localStorage.setItem('userId', user.id.toString());
         break;
       }
     }
