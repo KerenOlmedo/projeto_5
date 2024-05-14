@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InfoProjectComponent } from './components/info-project/info-project.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
+import { NewTaskComponent } from './components/new-task/new-task.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'project', component: InfoProjectComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'new-project', component: NewProjectComponent },
+  { path: 'new-task', component: NewTaskComponent },
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@ export class HeaderComponent {
     this.router.navigate([`/profile`]);
   }
 
-  protected newProject() {
-    this.router.navigate([`/new-project`]);
+  protected goOut() {
+    this.router.navigate([`/`]);
   }
 }

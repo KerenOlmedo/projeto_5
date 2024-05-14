@@ -13,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewTaskComponent } from './components/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CreateNewProjectComponent,
     ProfileComponent,
     NewProjectComponent,
+    NewTaskComponent,
   ],
   imports: [
     BrowserModule,

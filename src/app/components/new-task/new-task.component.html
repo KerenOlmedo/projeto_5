@@ -2,12 +2,12 @@
   <div class="container-father">
     <div>
       <div class="mb-3">
-        <label class="form-label title-input">Nome:</label>
+        <label class="form-label title-input">Titulo:</label>
         <input
           type="text"
           formControlName="password"
           class="form-control"
-          placeholder="Nome do projeto"
+          placeholder="Titulo da tarefa"
         />
       </div>
     </div>
@@ -26,9 +26,7 @@
       <div style="display: flex; justify-content: end">
         <button class="btn btn-primary btn-new-project" (click)="goBack()">
           Cancelar</button
-        ><button class="btn btn-primary" (click)="saveNewProject()">
-          Salvar
-        </button>
+        ><button class="btn btn-primary" (click)="saveNewTask()">Salvar</button>
       </div>
     </div>
   </div>

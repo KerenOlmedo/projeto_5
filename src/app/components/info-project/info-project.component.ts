@@ -12,6 +12,9 @@ export class InfoProjectComponent {
   protected goBack() {
     this.router.navigate([`/dashboard`]);
   }
+  protected newTask() {
+    this.router.navigate([`/new-task`]);
+  }
 
   protected listTask = [
     {
@@ -31,6 +34,4 @@ export class InfoProjectComponent {
       description: 'descrição da tarefa',
     },
   ];
-
-  
 }

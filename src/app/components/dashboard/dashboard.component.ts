@@ -17,6 +17,10 @@ export class DashboardComponent {
     this.router.navigate([`/dashboard`]);
   }
 
+  protected newProject() {
+    this.router.navigate([`/new-project`]);
+  }
+
   protected projectsList = [
     {
       name: 'Projeto 1',
