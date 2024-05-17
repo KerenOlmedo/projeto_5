@@ -1,11 +1,11 @@
 <section>
-  <div class="container-father">
+  <div class="container-father" [formGroup]="formRegister">
     <div>
       <div class="mb-3">
         <label class="form-label title-input">Titulo:</label>
         <input
           type="text"
-          formControlName="password"
+          formControlName="title"
           class="form-control"
           placeholder="Titulo da tarefa"
         />
@@ -24,10 +24,13 @@
     </div>
     <div>
       <div class="mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Status</option>
-          <option value="1">Em fila</option>
-          <option value="2">Concluida</option>
+        <select
+          formControlName="status"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>Em fila</option>
+          <option value="">Concluida</option>
         </select>
       </div>
     </div>

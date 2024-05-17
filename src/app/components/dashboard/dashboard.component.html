@@ -16,15 +16,15 @@
           <li class="d-flex" *ngFor="let item of projectsList">
             <div class="list-content">
               <div class="column-list">
-                <strong (click)="infoProject()" class="name-list"
-                  >{{ item.name }}
+                <strong (click)="editProject(item.id)" class="name-list"
+                  >{{ item.nome }}
                 </strong>
               </div>
               <div class="column-list d-flex justify-content-center">
-                <label>{{ item.description }}</label>
+                <label>{{ item.descricao }}</label>
               </div>
               <div class="column-list d-flex justify-content-end">
-                <button>
+                <button (click)="editProject(item.id)">
                   <img
                     src="assets/icon_trash.svg"
                     alt="icon trash"

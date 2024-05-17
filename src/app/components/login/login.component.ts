@@ -10,6 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class LoginComponent {
   protected listUser: any[] = [];
+  protected userLoggedId!: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,6 +21,8 @@ export class LoginComponent {
   ) {}
 
   ngOnInit() {
+    this.userLoggedId = localStorage.getItem('userId');
+    console.log(this.userLoggedId);
     this.listUsers();
   }
 

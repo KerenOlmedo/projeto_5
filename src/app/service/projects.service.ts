@@ -10,9 +10,7 @@ export class ProjectService {
 
   constructor(private httpClient: HttpClient) {}
 
-  ngOnInit() {}
-
-  listTask(): Observable<any> {
+  listProject(): Observable<any> {
     return this.httpClient.get(`${this.urlBase}?action=list`).pipe(
       catchError((error) => {
         throw error;
@@ -20,9 +18,9 @@ export class ProjectService {
     );
   }
 
-  deleteTask(task: any): Observable<any> {
+  deleteProject(project: any): Observable<any> {
     return this.httpClient
-      .get(`${this.urlBase}?action=delete&id=${task.id}`)
+      .get(`${this.urlBase}?action=delete&id=${project.id}`)
       .pipe(
         catchError((error) => {
           throw error;
@@ -30,10 +28,10 @@ export class ProjectService {
       );
   }
 
-  createTask(task: any, userId: any): Observable<any> {
+  createProject(project: any, userId: any): Observable<any> {
     return this.httpClient
       .get(
-        `${this.urlBase}?action=new&nome=${task.name}&descricao=${task.Descrição}&criador=${userId}`
+        `${this.urlBase}?action=new&nome=${project.name}&descricao=${project.description}&criador=${userId}`
       )
       .pipe(
         catchError((error) => {
@@ -42,10 +40,10 @@ export class ProjectService {
       );
   }
 
-  updateTask(task: any): Observable<any> {
+  updateProject(project: any): Observable<any> {
     return this.httpClient
       .get(
-        `${this.urlBase}?action=update&nome=${task.name}&email=${task.address}&senha=${task.password}&role=admin&id=${task.id}`
+        `${this.urlBase}?action=update&nome=${project.name}&email=${project.address}&senha=${project.password}&role=admin&id=${project.id}`
       )
       .pipe(
         catchError((error) => {
@@ -54,10 +52,10 @@ export class ProjectService {
       );
   }
 
-  getTaskId(task: any, userId: any): Observable<any> {
+  getProjectId(project: any, userId: any): Observable<any> {
     return this.httpClient
       .get(
-        `${this.urlBase}?action=new&nome=${task.name}&descricao=${task.Descrição}&criador=${userId}&id=${task.id}`
+        `${this.urlBase}?action=new&nome=${project.name}&descricao=${project.description}&criador=${userId}&id=${project.id}`
       )
       .pipe(
         catchError((error) => {

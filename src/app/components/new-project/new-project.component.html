@@ -1,35 +1,37 @@
 <section>
   <div class="container-father">
-    <div>
-      <div class="mb-3">
-        <label class="form-label title-input">Nome:</label>
-        <input
-          type="text"
-          formControlName="password"
-          class="form-control"
-          placeholder="Nome do projeto"
-        />
+    <form [formGroup]="formRegister">
+      <div>
+        <div class="mb-3">
+          <label class="form-label title-input">Nome:</label>
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Nome do projeto"
+          />
+        </div>
       </div>
-    </div>
-    <div>
-      <div class="mb-3">
-        <label class="form-label title-input">Descricao:</label>
-        <input
-          style="height: 110px"
-          formControlName="description"
-          type="text"
-          class="form-control"
-        />
+      <div>
+        <div class="mb-3">
+          <label class="form-label title-input">Descricao:</label>
+          <input
+            style="height: 110px"
+            formControlName="description"
+            type="text"
+            class="form-control"
+          />
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div style="display: flex; justify-content: end">
-        <button class="btn btn-primary btn-new-project" (click)="goBack()">
-          Cancelar</button
-        ><button class="btn btn-primary" (click)="saveNewProject()">
-          Salvar
-        </button>
+      <div class="row">
+        <div style="display: flex; justify-content: end">
+          <button class="btn btn-primary btn-new-project" (click)="goBack()">
+            Cancelar</button
+          ><button class="btn btn-primary" (click)="saveNewProject()">
+            Salvar
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </section>

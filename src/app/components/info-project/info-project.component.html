@@ -11,9 +11,9 @@
       </div>
     </div>
     <div class="col">
-      <div style="height: 350px">
+      <div>
         <ul class="mb-0">
-          <li class="d-flex" *ngFor="let item of listTask">
+          <li class="d-flex" *ngFor="let item of taskList">
             <div class="list-content">
               <div class="column-list">
                 <input
@@ -34,7 +34,7 @@
                     class="img-trash"
                   />
                 </button>
-                <button>
+                <button (click)="editTask(item.id)">
                   <img
                     src="assets/icon_to_edit.svg"
                     alt="icon to edit"
@@ -48,11 +48,6 @@
       </div>
     </div>
     <div class="row justify-content-center" style="margin-top: 40px">
-      <div class="col pagination justify-content-center">
-        <button class="btn-pagnation"><</button>
-        <span>Página 1 de 2</span>
-        <button class="btn-pagnation">></button>
-      </div>
       <div class="col d-flex justify-content-end" style="margin-left: 20px">
         <button (click)="goBack()" class="btn-go-back">Voltar</button>
       </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from 'src/app/service/projects.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,15 +8,22 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  constructor(public router: Router, private route: ActivatedRoute) {}
-  protected userLoggedId!: any;
+  protected projectsList: any;
+  protected projectId: any;
+
+  constructor(
+    public router: Router,
+    private route: ActivatedRoute,
+    private projectService: ProjectService
+  ) {}
 
   ngOnInit() {
-    this.userLoggedId = localStorage.getItem('userId');
-    console.log(this.userLoggedId);
+    this.lisProjects();
   }
 
-  protected infoProject() {
+  protected editProject(id: any) {
+    localStorage.setItem('projectId', id.toString());
+
     this.router.navigate([`/project`]);
   }
 
@@ -27,33 +35,15 @@ export class DashboardComponent {
     this.router.navigate([`/new-project`]);
   }
 
-  protected projectsList = [
-    {
-      name: 'Projeto 1',
-      description: '...',
-      tasks: [
-        {
-          titulo: 'tarefa X',
-        },
-      ],
-    },
-    {
-      name: 'Projeto 2',
-      description: '...',
-      tasks: [
-        {
-          titulo: 'tarefa X',
-        },
-      ],
-    },
-    {
-      name: 'Projeto 3',
-      description: '...',
-      tasks: [
-        {
-          titulo: 'tarefa X',
-        },
-      ],
-    },
-  ];
+  protected lisProjects() {
+    this.projectService.listProject().subscribe(
+      (data) => {
+        this.projectsList = data;
+        console.log(this.projectsList);
+      },
+      (error) => {
+        console.error('Erro ao fazer requisição:', error);
+      }
+    );
+  }
 }
