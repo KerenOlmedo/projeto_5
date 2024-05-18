@@ -1,30 +1,31 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from 'src/app/service/projects.service';
 import { TaskService } from 'src/app/service/task.service';
 
 @Component({
-  selector: 'app-new-task',
-  templateUrl: './new-task.component.html',
-  styleUrls: ['./new-task.component.scss'],
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.scss'],
 })
-export class NewTaskComponent {
-  protected taskList: any;
+export class TaskComponent {
   protected userLoggedId!: any;
   protected projectId!: any;
+  protected taskId!: any;
 
   constructor(
     public router: Router,
-    private formBuilder: FormBuilder,
-
     private route: ActivatedRoute,
-    public taskService: TaskService
+    private formBuilder: FormBuilder,
+    private taskService: TaskService
   ) {}
 
   ngOnInit() {
     this.userLoggedId = localStorage.getItem('userId');
     this.projectId = localStorage.getItem('projectId');
-    this.listTaks();
+    this.taskId = localStorage.getItem('taskId');
+    console.log(this.taskId);
   }
 
   formRegister: FormGroup = this.formBuilder.group({
@@ -37,34 +38,23 @@ export class NewTaskComponent {
     this.router.navigate(['./dashboard']);
   }
 
-  protected saveNewTask() {
-    const task = {
+  saveEditTask() {
+    const projectForm: any = {
       title: this.formRegister.get('title')?.value,
       description: this.formRegister.get('description')?.value,
       status: this.formRegister.get('status')?.value,
     };
+
     this.taskService
-      .createTask(task, this.userLoggedId, this.projectId)
+      .updatetTask(projectForm, this.projectId, this.userLoggedId, this.taskId)
       .subscribe(
         (data) => {
-          console.log(data);
-          alert(`Tarefa adicionada com sucesso!`);
-          this.router.navigate(['./dashboard']);
+          alert(`Tarefa criada com sucesso!`);
+          this.router.navigate(['./project']);
         },
         (error) => {
           console.error('Erro ao fazer requisição:', error);
         }
       );
-  }
-
-  protected listTaks() {
-    this.taskService.listTask().subscribe(
-      (data) => {
-        this.taskList = data;
-      },
-      (error) => {
-        console.error('Erro ao fazer requisição:', error);
-      }
-    );
   }
 }

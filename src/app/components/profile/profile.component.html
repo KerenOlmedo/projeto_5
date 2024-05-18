@@ -1,1 +1,32 @@
-<h1>Em Criação!!</h1>
+<section>
+  <div class="container-father">
+    <form [formGroup]="formRegister">
+      <div>
+        <div class="mb-3">
+          <label class="form-label title-input">Nome:</label>
+          <input type="text" formControlName="name" class="form-control" />
+        </div>
+      </div>
+      <div>
+        <div class="mb-3">
+          <label class="form-label title-input">E-mail:</label>
+          <input formControlName="address" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label title-input">Senha:</label>
+          <input formControlName="password" type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div style="display: flex; justify-content: end">
+          <button class="btn btn-primary btn-go-back" (click)="goBack()">
+            Voltar
+          </button>
+          <button class="btn btn-primary" (click)="saveProfile()">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

@@ -13,7 +13,7 @@
     <div class="col">
       <div>
         <ul class="mb-0">
-          <li class="d-flex" *ngFor="let item of taskList">
+          <li class="d-flex" *ngFor="let task of taskList">
             <div class="list-content">
               <div class="column-list">
                 <input
@@ -21,20 +21,22 @@
                   type="checkbox"
                   value=""
                 />
-                <strong class="name-list">{{ item.titulo }} </strong>
+                <strong (click)="editTask(task.id)" class="name-list"
+                  >{{ task.titulo }}
+                </strong>
               </div>
               <div class="column-list d-flex justify-content-center">
-                <label>{{ item.description }}</label>
+                <label>{{ task.description }}</label>
               </div>
               <div class="column-list d-flex justify-content-end">
-                <button>
+                <button (click)="deleteTask(task.id)">
                   <img
                     src="assets/icon_trash.svg"
                     alt="icon trash"
                     class="img-trash"
                   />
                 </button>
-                <button (click)="editTask(item.id)">
+                <button (click)="editTask(task.id)">
                   <img
                     src="assets/icon_to_edit.svg"
                     alt="icon to edit"

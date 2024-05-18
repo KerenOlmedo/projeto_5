@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProject } from 'src/app/core/service/interfaces/IProject';
 import { ProjectService } from 'src/app/service/projects.service';
 
 @Component({
@@ -11,6 +10,8 @@ import { ProjectService } from 'src/app/service/projects.service';
 })
 export class NewProjectComponent {
   protected userLoggedId!: any;
+  protected project: any;
+  protected projectId!: any;
 
   constructor(
     public router: Router,
@@ -20,6 +21,8 @@ export class NewProjectComponent {
   ) {}
 
   ngOnInit() {
+    this.loadProject();
+    this.projectId = localStorage.getItem('projectId');
     this.userLoggedId = localStorage.getItem('userId');
     console.log(this.userLoggedId);
   }
@@ -31,6 +34,20 @@ export class NewProjectComponent {
 
   goBack() {
     this.router.navigate(['./dashboard']);
+  }
+
+  loadProject() {
+    if (this.projectId) {
+      this.projectService.getProjectById(this.projectId).subscribe(
+        (data) => {
+          this.project = data;
+          console.log(this.project);
+        },
+        (error) => {
+          console.error('Erro ao carregar projeto:', error);
+        }
+      );
+    }
   }
 
   saveNewProject() {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from 'src/app/service/projects.service';
 import { TaskService } from 'src/app/service/task.service';
 
 @Component({
@@ -11,11 +12,12 @@ export class InfoProjectComponent {
   protected taskList: any;
   protected userLoggedId!: any;
   protected projectId!: any;
+  protected taskId!: any;
 
   constructor(
     public router: Router,
-    private route: ActivatedRoute,
-    public taskService: TaskService
+    public taskService: TaskService,
+    public projectService: ProjectService
   ) {}
 
   ngOnInit() {
@@ -33,9 +35,22 @@ export class InfoProjectComponent {
 
   protected editTask(id: any) {
     localStorage.setItem('taskId', id.toString());
-    this.router.navigate([`/project`]);
+    this.router.navigate([`/task`]);
   }
 
+  protected deleteTask(id: string) {
+    localStorage.setItem('taskId', id.toString());
+    this.taskId = localStorage.getItem('taskId');
+    this.taskService.deleteTask(this.taskId).subscribe(
+      (data) => {
+        alert('Projeto deletado com sucesso!');
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Erro ao fazer requisição:', error);
+      }
+    );
+  }
   protected listTaks() {
     this.taskService.listTask().subscribe(
       (data) => {

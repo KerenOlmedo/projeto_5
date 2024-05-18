@@ -23,8 +23,22 @@ export class DashboardComponent {
 
   protected editProject(id: any) {
     localStorage.setItem('projectId', id.toString());
-
+    this.projectId = localStorage.getItem('projectId');
     this.router.navigate([`/project`]);
+  }
+
+  protected deleteProject(id: string) {
+    localStorage.setItem('projectId', id.toString());
+    this.projectId = localStorage.getItem('projectId');
+    this.projectService.deleteProject(this.projectId).subscribe(
+      (data) => {
+        alert('Projeto deletado com sucesso!');
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Erro ao fazer requisição:', error);
+      }
+    );
   }
 
   protected goBack() {
@@ -39,7 +53,6 @@ export class DashboardComponent {
     this.projectService.listProject().subscribe(
       (data) => {
         this.projectsList = data;
-        console.log(this.projectsList);
       },
       (error) => {
         console.error('Erro ao fazer requisição:', error);

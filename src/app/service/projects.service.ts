@@ -18,9 +18,9 @@ export class ProjectService {
     );
   }
 
-  deleteProject(project: any): Observable<any> {
+  deleteProject(projectId: any): Observable<any> {
     return this.httpClient
-      .get(`${this.urlBase}?action=delete&id=${project.id}`)
+      .get(`${this.urlBase}?action=delete&id=${projectId}`)
       .pipe(
         catchError((error) => {
           throw error;
@@ -52,11 +52,9 @@ export class ProjectService {
       );
   }
 
-  getProjectId(project: any, userId: any): Observable<any> {
+  getProjectById(projectId: string): Observable<any> {
     return this.httpClient
-      .get(
-        `${this.urlBase}?action=new&nome=${project.name}&descricao=${project.description}&criador=${userId}&id=${project.id}`
-      )
+      .get(`${this.urlBase}?action=get&id=${projectId}`)
       .pipe(
         catchError((error) => {
           throw error;

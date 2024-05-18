@@ -7,6 +7,7 @@ import { InfoProjectComponent } from './components/info-project/info-project.com
 import { ProfileComponent } from './components/profile/profile.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
+import { TaskComponent } from './components/task/task.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'new-project', component: NewProjectComponent },
   { path: 'new-task', component: NewTaskComponent },
+  { path: 'task', component: TaskComponent },
 ];
 
 @NgModule({
