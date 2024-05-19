@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ProfileComponent {
   protected userLoggedId!: any;
+  protected user!: any;
 
   constructor(
     public router: Router,
@@ -21,7 +22,7 @@ export class ProfileComponent {
 
   ngOnInit() {
     this.userLoggedId = localStorage.getItem('userId');
-    this.saveProfile();
+    this.getUserId();
   }
 
   formRegister: FormGroup = this.formBuilder.group({
@@ -34,22 +35,39 @@ export class ProfileComponent {
     this.router.navigate(['./dashboard']);
   }
 
-  saveProfile() {
-    // const projectForm: any = {
-    //   name: this.formRegister.get('name')?.value,
-    //   address: this.formRegister.get('address')?.value,
-    //   password: this.formRegister.get('password')?.value,
-    // };
-
+  getUserId() {
     this.userService.getUserId(this.userLoggedId).subscribe(
       (data) => {
-        console.log(data);
-
-        this.router.navigate(['./dashboard']);
+        this.user = data[0];
+        this.formRegister.patchValue({
+          name: this.user.nome,
+          address: this.user.email,
+          password: this.user.senha,
+        });
       },
       (error) => {
         console.error('Erro ao fazer requisição:', error);
       }
     );
+  }
+
+  saveEditTask() {
+    if (this.formRegister.dirty && this.formRegister.valid) {
+      const updatedUser = {
+        name: this.formRegister.get('name')?.value,
+        address: this.formRegister.get('address')?.value,
+        password: this.formRegister.get('password')?.value,
+      };
+
+      this.userService.updateUser(updatedUser, this.userLoggedId).subscribe(
+        (data) => {
+          alert(`Perfil atualizado com sucesso!`);
+          this.router.navigate(['./project']);
+        },
+        (error) => {
+          console.error('Erro ao fazer requisição:', error);
+        }
+      );
+    }
   }
 }

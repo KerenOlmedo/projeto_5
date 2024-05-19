@@ -14,7 +14,11 @@
         </div>
         <div class="mb-3">
           <label class="form-label title-input">Senha:</label>
-          <input formControlName="password" type="text" class="form-control" />
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+          />
         </div>
       </div>
       <div class="row">
@@ -22,7 +26,7 @@
           <button class="btn btn-primary btn-go-back" (click)="goBack()">
             Voltar
           </button>
-          <button class="btn btn-primary" (click)="saveProfile()">
+          <button class="btn btn-primary" (click)="saveEditTask()">
             Salvar
           </button>
         </div>

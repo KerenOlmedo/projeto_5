@@ -17,6 +17,14 @@ export class TaskService {
     );
   }
 
+  listTaskId(taskId: any): Observable<any> {
+    return this.httpClient.get(`${this.urlBase}?action=info&id=${taskId}`).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    );
+  }
+
   deleteTask(taskId: any): Observable<any> {
     return this.httpClient
       .get(`${this.urlBase}?action=delete&id=${taskId}`)
@@ -47,18 +55,6 @@ export class TaskService {
     return this.httpClient
       .get(
         `${this.urlBase}?action=update&titulo=${task.title}&descricao=${task.description}&status=${task.status}&responsavel=${userId}&projeto=${projectId}&id=${idTask}`
-      )
-      .pipe(
-        catchError((error) => {
-          throw error;
-        })
-      );
-  }
-
-  getTaskId(task: any, userId: any): Observable<any> {
-    return this.httpClient
-      .get(
-        `${this.urlBase}?action=new&nome=${task.name}&descricao=${task.description}&criador=${userId}&id=${task.id}`
       )
       .pipe(
         catchError((error) => {

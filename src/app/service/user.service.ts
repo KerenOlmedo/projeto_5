@@ -40,10 +40,10 @@ export class UserService {
       );
   }
 
-  updateUser(user: any): Observable<any> {
+  updateUser(user: any, userId: any): Observable<any> {
     return this.httpClient
       .get(
-        `${this.urlBase}?action=update&nome=${user.name}&email=${user.address}&senha=${user.password}&role=admin&id=${user.id}`
+        `${this.urlBase}?action=update&nome=${user.name}&email=${user.address}&senha=${user.password}&role=admin&id=${userId}`
       )
       .pipe(
         catchError((error) => {
@@ -52,13 +52,11 @@ export class UserService {
       );
   }
 
-  getUserId(user: any): Observable<any> {
-    return this.httpClient
-      .get(`${this.urlBase}?action=info&id=${user.id}`)
-      .pipe(
-        catchError((error) => {
-          throw error;
-        })
-      );
+  getUserId(userId: any): Observable<any> {
+    return this.httpClient.get(`${this.urlBase}?action=info&id=${userId}`).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    );
   }
 }

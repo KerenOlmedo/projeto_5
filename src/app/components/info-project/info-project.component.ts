@@ -51,11 +51,11 @@ export class InfoProjectComponent {
       }
     );
   }
+
   protected listTaks() {
     this.taskService.listTask().subscribe(
       (data) => {
         this.taskList = data;
-        console.log(data[0].titulo);
       },
       (error) => {
         console.error('Erro ao fazer requisição:', error);

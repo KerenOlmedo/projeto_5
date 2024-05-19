@@ -10,7 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class LoginComponent {
   protected listUser: any[] = [];
-  protected userLoggedId!: any;
+  protected userId: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,8 +21,6 @@ export class LoginComponent {
   ) {}
 
   ngOnInit() {
-    this.userLoggedId = localStorage.getItem('userId');
-    console.log(this.userLoggedId);
     this.listUsers();
   }
 
@@ -50,12 +48,13 @@ export class LoginComponent {
     for (const user of this.listUser) {
       if (user.email === userForm.address && user.senha === userForm.password) {
         userFound = true;
-        localStorage.setItem('userId', user.id.toString());
+        this.userId = user.id;
         break;
       }
     }
 
     if (userFound) {
+      localStorage.setItem('userId', this.userId);
       this.router.navigate([`/dashboard`]);
     } else {
       alert('Email ou senha incorretos!');
@@ -66,6 +65,7 @@ export class LoginComponent {
     this.userService.listUser().subscribe(
       (data) => {
         this.listUser = data;
+        console.log(this.listUser);
       },
       (error) => {
         console.error('Erro ao fazer requisição:', error);
