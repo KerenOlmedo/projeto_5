@@ -23,7 +23,7 @@ export class InfoProjectComponent {
   ngOnInit() {
     this.userLoggedId = localStorage.getItem('userId');
     this.projectId = localStorage.getItem('projectId');
-    this.listTaks();
+    this.listTasks();
   }
 
   protected goBack() {
@@ -43,7 +43,7 @@ export class InfoProjectComponent {
     this.taskId = localStorage.getItem('taskId');
     this.taskService.deleteTask(this.taskId).subscribe(
       (data) => {
-        alert('Projeto deletado com sucesso!');
+        alert('Tarefa deletada com sucesso!');
         window.location.reload();
       },
       (error) => {
@@ -52,7 +52,7 @@ export class InfoProjectComponent {
     );
   }
 
-  protected listTaks() {
+  protected listTasks() {
     this.taskService.listTask().subscribe(
       (data) => {
         this.taskList = data;

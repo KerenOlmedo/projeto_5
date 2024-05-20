@@ -65,7 +65,6 @@ export class LoginComponent {
     this.userService.listUser().subscribe(
       (data) => {
         this.listUser = data;
-        console.log(this.listUser);
       },
       (error) => {
         console.error('Erro ao fazer requisição:', error);

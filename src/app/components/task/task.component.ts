@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjectService } from 'src/app/service/projects.service';
 import { TaskService } from 'src/app/service/task.service';
 
 @Component({
@@ -9,7 +8,8 @@ import { TaskService } from 'src/app/service/task.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
+  formRegister: FormGroup;
   protected userLoggedId!: any;
   protected projectId!: any;
   protected taskId!: any;
@@ -20,7 +20,13 @@ export class TaskComponent {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private taskService: TaskService
-  ) {}
+  ) {
+    this.formRegister = this.formBuilder.group({
+      title: [null, Validators.required],
+      description: [null, Validators.required],
+      status: [null, Validators.required],
+    });
+  }
 
   ngOnInit() {
     this.userLoggedId = localStorage.getItem('userId');
@@ -28,12 +34,6 @@ export class TaskComponent {
     this.taskId = localStorage.getItem('taskId');
     this.getTaskId();
   }
-
-  formRegister: FormGroup = this.formBuilder.group({
-    title: [null, Validators.required],
-    description: [null, Validators.required],
-    status: [null, Validators.required],
-  });
 
   goBack() {
     this.router.navigate(['./dashboard']);
@@ -58,7 +58,7 @@ export class TaskComponent {
   }
 
   saveEditTask() {
-    if (this.formRegister.dirty && this.formRegister.valid) {
+    if (this.formRegister.valid && this.formRegister.dirty) {
       const updatedTask = {
         title: this.formRegister.get('title')?.value,
         description: this.formRegister.get('description')?.value,
@@ -74,7 +74,7 @@ export class TaskComponent {
         )
         .subscribe(
           (data) => {
-            alert(`Tarefa atualizada com sucesso!`);
+            alert('Tarefa atualizada com sucesso!');
             this.router.navigate(['./project']);
           },
           (error) => {

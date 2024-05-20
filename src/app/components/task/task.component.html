@@ -19,21 +19,26 @@
         </div>
         <div class="mb-3">
           <label class="form-label title-input">Status:</label>
-          <select
-            formControlName="status"
-            class="form-select"
-            aria-label="Default select example"
-          >
-            <option selected>Em fila</option>
-            <option value="">Concluida</option>
+          <select formControlName="status" class="form-select">
+            <option value="Em fila">Em fila</option>
+            <option value="Concluida">Concluida</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div style="display: flex; justify-content: end">
-          <button class="btn btn-primary btn-new-project" (click)="goBack()">
-            Cancelar</button
-          ><button class="btn btn-primary" (click)="saveEditTask()">
+          <button
+            class="btn btn-primary btn-new-project"
+            type="button"
+            (click)="goBack()"
+          >
+            Cancelar
+          </button>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            (click)="saveEditTask()"
+          >
             Salvar
           </button>
         </div>

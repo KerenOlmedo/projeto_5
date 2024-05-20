@@ -49,7 +49,7 @@ export class NewTaskComponent {
         (data) => {
           console.log(data);
           alert(`Tarefa adicionada com sucesso!`);
-          this.router.navigate(['./dashboard']);
+          this.router.navigate(['./project']);
         },
         (error) => {
           console.error('Erro ao fazer requisição:', error);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/service/user.service';
@@ -9,8 +9,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
+  protected formRegister!: FormGroup;
   protected listUser = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
@@ -21,27 +23,28 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.listUsers();
-  }
-
-  formRegister: FormGroup = this.formBuilder.group({
-    name: [null, Validators.required],
-    address: [null, Validators.required],
-    password: [null, Validators.required],
-    repeatPassword: [null, Validators.required],
-  });
-
-  login() {
-    console.log('Login');
+    this.formRegister = this.formBuilder.group({
+      name: [null, Validators.required],
+      address: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required],
+      repeatPassword: [null, Validators.required],
+    });
   }
 
   protected createUser() {
-    if (this.formRegister.valid) {
-      const user = {
-        name: this.formRegister.get('name')?.value,
-        address: this.formRegister.get('address')?.value,
-        password: this.formRegister.get('password')?.value,
-      };
+    const user = {
+      name: this.formRegister.get('name')?.value,
+      address: this.formRegister.get('address')?.value,
+      password: this.formRegister.get('password')?.value,
+      repeatPassword: this.formRegister.get('repeatPassword')?.value,
+    };
 
+    if (user.password !== user.repeatPassword) {
+      alert('As senhas não coincidem!');
+      return;
+    }
+
+    if (this.formRegister.valid) {
       this.userService.createUser(user).subscribe(
         (data) => {
           alert('Usuário cadastrado com sucesso!');

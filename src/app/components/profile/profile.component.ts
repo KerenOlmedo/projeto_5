@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjectService } from 'src/app/service/projects.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   protected userLoggedId!: any;
   protected user!: any;
 
@@ -27,7 +26,7 @@ export class ProfileComponent {
 
   formRegister: FormGroup = this.formBuilder.group({
     name: [null, Validators.required],
-    address: [null, Validators.required],
+    address: [null, [Validators.required, Validators.email]],
     password: [null, Validators.required],
   });
 
